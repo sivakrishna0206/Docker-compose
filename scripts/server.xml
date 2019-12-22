@@ -145,19 +145,11 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-	<Host name="bimserver" appBase="webapps"
-                             unpackWARs="true"
-                             autoDeploy="true"
-                             xmlValidation="false"
-                             xmlNamespaceAware="false">
 
-        <!--
-        docBase="/usr/local/tomcat/webapp/ROOT.war"
-        -->
-
-        <Context path="">
-            <Parameter name="homedir" value="/var/bimserver/home"/>
-        </Context>
+      <Host name="localhost" appBase="/var/www/bimserver" unpackWARs="true" autoDeploy="true" xmlValidation="false" xmlNamespaceAware="false">
+    <Context path="" docBase="/var/www/bimserver/BIMserver.war">
+        <Parameter name="homedir" value="/var/bimserver/home"/>
+    </Context>
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->

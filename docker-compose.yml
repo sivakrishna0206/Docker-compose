@@ -20,12 +20,15 @@ services:
      - bimnetwork       
 
  bimserver:
-    image: prodgitlab.ktree.org:5555/root/proj_bimserver:bimfix05
+    image: ktreeit/bim-dev:bim-win05
     container_name: 'bimserver'
     restart: 'always'
     environment:
      TOMCAT_USER: tomcat
      TOMCAT_PASSWORD: tomcat
+     BIM_DB_HOST: db:3306
+     BIM_DB_USER: bimuser
+     BIM_DB_PASSWORD: Ktr33@r00t
     depends_on:
       - 'db'
     ports:
@@ -34,8 +37,8 @@ services:
       - 'db:db'
     volumes:
         - type: bind
-          source: $HOST/opt/tomcat
-          target: /opt/tomcat
+          source: $HOST/var/www/bimserver
+          target: /var/www/bimserver
     networks:
       - bimnetwork      
 volumes:
