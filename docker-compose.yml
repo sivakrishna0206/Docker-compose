@@ -1,0 +1,46 @@
+version: "3.3"
+
+services:
+ db:
+    image: mysql:5.7
+    container_name: 'mysql-57'
+    restart: always
+    environment:
+     MYSQL_DATABASE: 'bimserver'
+     MYSQL_USER: 'bimuser'
+     MYSQL_PASSWORD: 'Ktr33@r00t'
+     MYSQL_ROOT_PASSWORD: '$Mut@1M2'
+    ports:
+     - '3306:3306'
+    expose:
+     - '3306'
+    volumes:
+     - mysql-volume:/var/lib/mysql
+    networks:
+     - bimnetwork       
+
+ bimserver:
+    image: prodgitlab.ktree.org:5555/root/proj_bimserver:bimfix05
+    container_name: 'bimserver'
+    restart: 'always'
+    environment:
+     TOMCAT_USER: tomcat
+     TOMCAT_PASSWORD: tomcat
+    depends_on:
+      - 'db'
+    ports:
+      - "8080:8080"
+    links:
+      - 'db:db'
+    volumes:
+        - type: bind
+          source: $HOST/opt/tomcat
+          target: /opt/tomcat
+    networks:
+      - bimnetwork      
+volumes:
+   mysql-volume:
+
+networks:
+  bimnetwork: 
+    driver: bridge           
