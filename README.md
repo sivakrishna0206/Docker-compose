@@ -1,8 +1,19 @@
-# BIM & Scan® - Dockerised BIMserver
+# BIM - Dockerised BIMserver
 
-Docker image script for creating deployable Docker containers of the open-source [BIMserver](http://bimserver.org/) project.
+The source contains Docker file and other script for creating docker image and deployable Docker containers of the open-source [BIMserver] (http://bimserver.org/) project.
 
 Released under the terms of the Apache Licence v2.0, see "LICENCE.md" for more information and "THIRDPARTY.md" for details on licensed dependencies/integrated applications.
+
+Docker Compose
+==============
+![Docker Compose](logo.png?raw=true "Docker Compose Logo")
+
+Compose is a tool for defining and running multi-container Docker applications.
+With Compose, you use a Compose file to configure your application's services.
+Then, using a single command, you create and start all the services
+from your configuration.
+
+
 
 ## Usage
 
